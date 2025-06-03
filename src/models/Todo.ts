@@ -5,10 +5,10 @@ export class Todo {
   todo: string
   isDone: boolean
   created_at: Date
-  constructor(todo: string, isDone: boolean) {
+  constructor(todo: string) {
     this.id = uuidv4()
     this.todo = todo
-    this.isDone = isDone
+    this.isDone = false
     this.created_at = new Date()
   }
 }
