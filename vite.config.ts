@@ -5,5 +5,5 @@ import tailwindcss from "@tailwindcss/vite"
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/fed24d-js-ext-fed24d-the-last-todos-fed24d-the-last-todos/",
+  base: "/fed24d-the-last-todos-JanisSeibutis/",
 })
