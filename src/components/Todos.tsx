@@ -12,10 +12,16 @@ export const Todos = () => {
   ]
   const [todos, setTodos] = useState<Todo[]>(defaultTodos)
 
+  const updateTodo = (updatedTodo: Todo) => {
+    setTodos(
+      todos.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo))
+    )
+  }
+
   return (
     <>
       <h1>Todos</h1>
-      <TodosHandle todos={todos} />
+      <TodosHandle todos={todos} updateTodo={updateTodo} />
     </>
   )
 }
