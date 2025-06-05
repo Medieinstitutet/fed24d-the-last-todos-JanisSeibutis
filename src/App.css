@@ -8,3 +8,10 @@
 .done {
   text-decoration-line: line-through;
 }
+
+.todo-list {
+  min-height: 300px;
+}
+.completed-todo-list {
+  margin-top: 1rem;
+}
