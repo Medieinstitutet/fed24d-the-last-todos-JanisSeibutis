@@ -8,14 +8,34 @@ type TodoProps = {
 
 export const TodosHandle = ({ todos, setTodos }: TodoProps) => {
   return (
-    <div className="todo-list">
-      <ul>
-        {todos.map((t) => (
-          <li key={t.id}>
-            <TodosDisplay todo={t} todos={todos} setTodos={setTodos} />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {/* Todos list */}
+      <div className="todo-list">
+        <ul>
+          {todos
+            .filter((t) => !t.isDone)
+            .map((t) => (
+              <li key={t.id}>
+                <TodosDisplay todo={t} todos={todos} setTodos={setTodos} />
+              </li>
+            ))}
+        </ul>
+      </div>
+
+      <h2>Completed todos</h2>
+
+      {/* Completed Todos list */}
+      <div className="completed-todo-list">
+        <ul>
+          {todos
+            .filter((t) => t.isDone)
+            .map((t) => (
+              <li key={t.id}>
+                <TodosDisplay todo={t} todos={todos} setTodos={setTodos} />
+              </li>
+            ))}
+        </ul>
+      </div>
+    </>
   )
 }

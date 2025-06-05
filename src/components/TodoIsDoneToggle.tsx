@@ -27,7 +27,11 @@ export const TodoIsDoneToggle = ({ todo, todos, setTodos }: TodoProps) => {
 
   return (
     <>
-      <input type="checkbox" onChange={(e) => UpdateIsDone(e, todo.id)} />
+      <input
+        type="checkbox"
+        checked={todo.isDone}
+        onChange={(e) => UpdateIsDone(e, todo.id)}
+      />
     </>
   )
 }
