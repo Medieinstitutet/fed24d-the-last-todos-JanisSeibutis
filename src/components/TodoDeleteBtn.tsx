@@ -9,7 +9,6 @@ type TodoProps = {
 export const TodoDeleteBtn = ({ todo, todos, setTodos }: TodoProps) => {
   const deleteTodo = (deletedTodo: Todo) => {
     setTodos(todos.filter((todos) => todos.id !== deletedTodo.id))
-    console.log(deletedTodo)
   }
   //-------
   const removeTodo = (id: string) => {
