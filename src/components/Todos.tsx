@@ -1,27 +1,47 @@
 import { useState } from "react"
 import { Todo } from "../models/Todo"
 import { TodosHandle } from "./TodosHandle"
+import type { StoredTodo } from "../models/StoredTodo"
+import { TodoForm } from "./TodoForm"
 
 export const Todos = () => {
   const defaultTodos = [
-    new Todo("Todo one"),
-    new Todo("Todo two"),
-    new Todo("Todo three"),
-    new Todo("Todo four"),
-    new Todo("Todo five"),
+    new Todo("Walk with the dog"),
+    new Todo("Take out the trash"),
+    new Todo("Shop presents for children"),
+    new Todo("Relax, take a deep breath"),
+    new Todo("This is a very long todo to check how text flows"),
   ]
-  const [todos, setTodos] = useState<Todo[]>(defaultTodos)
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const storedTodos = localStorage.getItem("todos")
+    if (storedTodos) {
+      try {
+        const parsedTodos = JSON.parse(storedTodos)
 
-  const updateTodo = (updatedTodo: Todo) => {
-    setTodos(
-      todos.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo))
-    )
+        return parsedTodos.map((t: StoredTodo) => {
+          const todo = new Todo(t.todo)
+          todo.id = t.id
+          todo.isDone = t.isDone
+          todo.created_at = new Date(t.created_at)
+          return todo
+        })
+      } catch {
+        return defaultTodos
+      }
+    }
+    return defaultTodos
+  })
+
+  const reRenderTodos = (newTodos: Todo[]) => {
+    setTodos(newTodos)
+    localStorage.setItem("todos", JSON.stringify(newTodos))
   }
 
   return (
     <>
-      <h1>Todos</h1>
-      <TodosHandle todos={todos} updateTodo={updateTodo} />
+      <h1 className="text-3xl font-bold">Todos</h1>
+      <TodoForm todos={todos} setTodos={reRenderTodos} />
+      <TodosHandle todos={todos} setTodos={reRenderTodos} />
     </>
   )
 }
