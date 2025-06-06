@@ -24,7 +24,12 @@ export const TodoDeleteBtn = ({ todo, todos, setTodos }: TodoProps) => {
 
   return (
     <>
-      <button onClick={() => removeTodo(todo.id)}>Delete</button>
+      <button
+        className=" max-h-5 px-2 self-center bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+        onClick={() => removeTodo(todo.id)}
+      >
+        Delete
+      </button>
     </>
   )
 }
