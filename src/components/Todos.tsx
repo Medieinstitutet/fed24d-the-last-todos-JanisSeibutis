@@ -6,11 +6,11 @@ import { TodoForm } from "./TodoForm"
 
 export const Todos = () => {
   const defaultTodos = [
-    new Todo("Todo one"),
-    new Todo("Todo two"),
-    new Todo("Todo three"),
-    new Todo("Todo four"),
-    new Todo("Todo five"),
+    new Todo("Walk with the dog"),
+    new Todo("Take out the trash"),
+    new Todo("Shop presents for children"),
+    new Todo("Relax, take a deep breath"),
+    new Todo("This is a very long todo to check how text flows"),
   ]
   const [todos, setTodos] = useState<Todo[]>(() => {
     const storedTodos = localStorage.getItem("todos")
