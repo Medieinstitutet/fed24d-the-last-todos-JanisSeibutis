@@ -24,7 +24,12 @@ export const TodoSort = ({ todos, setTodos }: TodoProps) => {
 
   return (
     <>
-      <button onClick={() => sortTodos()}>Sort by date</button>
+      <button
+        className="max-h-8 sm:max-h-10 px-3 py-1 self-center text-center bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+        onClick={() => sortTodos()}
+      >
+        Sort by date
+      </button>
     </>
   )
 }

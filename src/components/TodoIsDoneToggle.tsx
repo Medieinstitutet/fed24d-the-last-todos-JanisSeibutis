@@ -30,13 +30,13 @@ export const TodoIsDoneToggle = ({ todo, todos, setTodos }: TodoProps) => {
         <input
           type="checkbox"
           name="isDone"
-          className="ml-auto min-w-4 min-h-4 sm:w-5 sm:h-5 self-center"
+          className="ml-auto min-w-4 min-h-4 sm:w-6 sm:h-6 self-center"
           checked={todo.isDone}
           onChange={(e) => UpdateIsDone(todo.id, e.target.checked)}
         />
       ) : (
         <button
-          className="max-h-5 px-2 self-center ml-auto bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+          className="max-h-5 sm:max-h-7 px-2 self-center ml-auto bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
           onClick={() => UpdateIsDone(todo.id, !todo.isDone)}
         >
           Undo

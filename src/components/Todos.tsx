@@ -39,8 +39,7 @@ export const Todos = () => {
 
   return (
     <>
-      <h1>Todos</h1>
-      <h2>Add New ToDo</h2>
+      <h1 className="text-3xl font-bold">Todos</h1>
       <TodoForm todos={todos} setTodos={reRenderTodos} />
       <TodosHandle todos={todos} setTodos={reRenderTodos} />
     </>

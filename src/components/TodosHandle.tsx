@@ -13,14 +13,14 @@ export const TodosHandle = ({ todos, setTodos }: TodoProps) => {
       <TodoSort todos={todos} setTodos={setTodos} />
 
       {/* Todos list */}
-      <div className="min-w-full  p-1">
+      <div className="min-w-full p-1">
         <ul className="flex flex-col gap-3">
           {todos
             .filter((t) => !t.isDone)
             .map((t) => (
               <li
                 key={t.id}
-                className="flex flex-row gap-3 sm:text-lg  text-sm border-b-2 p-3"
+                className="flex flex-col sm:text-lg  text-sm border-b-2 p-3"
               >
                 <TodoDisplay todo={t} todos={todos} setTodos={setTodos} />
               </li>
@@ -38,7 +38,7 @@ export const TodosHandle = ({ todos, setTodos }: TodoProps) => {
             .map((t) => (
               <li
                 key={t.id}
-                className="flex flex-row gap-3 sm:text-lg  text-sm border-b-2 p-3"
+                className="flex flex-col  sm:text-lg  text-sm border-b-2 p-3"
               >
                 <TodoDisplay todo={t} todos={todos} setTodos={setTodos} />
               </li>
