@@ -28,7 +28,9 @@ export const TodosHandle = ({ todos, setTodos }: TodoProps) => {
         </ul>
       </div>
 
-      {todos.some((t) => t.isDone) && <h2 className="mt-4">Completed todos</h2>}
+      {todos.some((t) => t.isDone) && (
+        <h2 className="mt-4 text-3xl font-bold ">Completed todos</h2>
+      )}
 
       {/* Completed Todos list */}
       <div className="completed-todo-list min-w-full p-1">
