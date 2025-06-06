@@ -12,7 +12,9 @@ export const Todos = () => {
     new Todo("Relax, take a deep breath"),
     new Todo("This is a very long todo to check how text flows"),
   ]
+
   const [todos, setTodos] = useState<Todo[]>(() => {
+    // Initiates state and makes new Todo class objects from storage if any, else from default list
     const storedTodos = localStorage.getItem("todos")
     if (storedTodos) {
       try {
